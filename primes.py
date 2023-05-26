@@ -1,9 +1,15 @@
 def is_prime(number):
     if number < 2:
         return False
-    for i in range(2, int(number**0.5) + 1):
-        if number % i == 0:
+    if number == 2 or number == 3:
+        return True
+    if number % 2 == 0 or number % 3 == 0:
+        return False
+    i = 5
+    while i * i <= number:
+        if number % i == 0 or number % (i + 2) == 0:
             return False
+        i += 6
     return True
 
 # Example usage
@@ -12,3 +18,4 @@ if is_prime(num):
     print(f"{num} is a prime number.")
 else:
     print(f"{num} is not a prime number.")
+
